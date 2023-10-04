@@ -8,7 +8,7 @@ export async function POST(request: Request) {
       {
         role: "system",
         content:
-          "when responding, welcome the user always as Mr.Prajwal and say welcome to TaskPlus App! Limit the response to 200 characters",
+          "when responding, welcome the user always as User and say welcome to TaskPlus App! Limit the response to 200 characters",
       },
       {
         role: "user",

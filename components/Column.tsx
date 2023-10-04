@@ -2,6 +2,7 @@ import { Draggable, Droppable } from "react-beautiful-dnd";
 import TodoCard from "./TodoCard";
 import { PlusCircleIcon } from "@heroicons/react/20/solid";
 import useBoardStore from "@/store/BoardStore";
+import useModalStore from "@/store/ModalStore";
 
 type Props = {
   id: TypedColumn;
@@ -18,7 +19,17 @@ const idToColumnText: {
 };
 
 const Column = ({ id, todos, index }: Props) => {
-  const [searchString] = useBoardStore((state) => [state.searchString]);
+  const [searchString, setNewTaskType] = useBoardStore((state) => [state.searchString, state.setNewTaskType]);
+  const [openModal] = useModalStore((state) => [
+    state.openModal,
+  ]);
+
+  const handleAddTodo = () => {
+    setNewTaskType(id);
+    openModal();
+  };
+
+
 
   return (
     <Draggable draggableId={id} index={index}>
@@ -34,7 +45,7 @@ const Column = ({ id, todos, index }: Props) => {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
                 className={`p-2 rounded-2xl shadow-sm ${
-                  snapshot.isDraggingOver ? " bg-gradient-to-bl from-emerald-300/50 to-cyan-500/50" : "bg-white/50"
+                  snapshot.isDraggingOver ? " bg-gradient-to-bl from-emerald-200/50 to-cyan-200/50" : "bg-white/50"
                 }`}
               >
                 <h2 className="flex justify-between font-bold text-xl p-2">
@@ -80,7 +91,7 @@ const Column = ({ id, todos, index }: Props) => {
                   })}
                   {provided.placeholder}
                   <div className="flex items-end justify-end p-2">
-                    <button className="text-green-800 hover:text-green-600">
+                    <button className="text-green-800 hover:text-green-600" onClick={handleAddTodo}>
                       <PlusCircleIcon className="h-6 w-6" />
                     </button>
                   </div>

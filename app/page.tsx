@@ -9,7 +9,6 @@ export default function Home() {
       {/* Board Component */}
       <Board/>
 
-      <h1>TaskPlus AI</h1>
     </main>
   )
 }

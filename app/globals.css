@@ -2,3 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.my_gradient {
+  /* from-blue-800/50 via-[#dbd9d9] to-red-800/60 */
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 56, 147, 0.65) 11%,
+    #dbd9d9 43%,
+    rgba(220, 20, 60, 0.65) 66%
+  );
+}

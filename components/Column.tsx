@@ -19,17 +19,16 @@ const idToColumnText: {
 };
 
 const Column = ({ id, todos, index }: Props) => {
-  const [searchString, setNewTaskType] = useBoardStore((state) => [state.searchString, state.setNewTaskType]);
-  const [openModal] = useModalStore((state) => [
-    state.openModal,
+  const [searchString, setNewTaskType] = useBoardStore((state) => [
+    state.searchString,
+    state.setNewTaskType,
   ]);
+  const [openModal] = useModalStore((state) => [state.openModal]);
 
   const handleAddTodo = () => {
     setNewTaskType(id);
     openModal();
   };
-
-
 
   return (
     <Draggable draggableId={id} index={index}>
@@ -45,7 +44,7 @@ const Column = ({ id, todos, index }: Props) => {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
                 className={`p-2 rounded-2xl shadow-sm ${
-                  snapshot.isDraggingOver ? " bg-gradient-to-bl from-emerald-200/50 to-cyan-200/50" : "bg-white/50"
+                  snapshot.isDraggingOver ? " bg-blue-700/20" : "bg-white/40"
                 }`}
               >
                 <h2 className="flex justify-between font-bold text-xl p-2">
@@ -91,7 +90,10 @@ const Column = ({ id, todos, index }: Props) => {
                   })}
                   {provided.placeholder}
                   <div className="flex items-end justify-end p-2">
-                    <button className="text-green-800 hover:text-green-600" onClick={handleAddTodo}>
+                    <button
+                      className="text-green-800 hover:text-green-600"
+                      onClick={handleAddTodo}
+                    >
                       <PlusCircleIcon className="h-6 w-6" />
                     </button>
                   </div>

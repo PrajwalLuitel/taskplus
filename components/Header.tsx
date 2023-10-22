@@ -32,16 +32,14 @@ const Header = () => {
 
   return (
     <header>
-      <div className="flex flex-col md:flex-row items-center p-5 bg-green-300/10 rounded-b-2xl">
+      <div className="flex flex-col md:flex-row items-center p-5 rounded-b-2xl">
         <div
           className="absolute
                             top-0
                             left-0
                             w-full
                             h-96
-                            bg-gradient-to-br
-                            from-blue-400
-                            to-green-600
+                           
                             rounded-md
                             filter
                             blur-3xl
@@ -72,13 +70,13 @@ const Header = () => {
             </button>
           </form>
 
-          <Avatar name="Prajwal Luitel" round size="50" color="#029c56" />
+          <Avatar name="Prajwal Luitel" round size="50" color="#003893" />
         </div>
       </div>
       <div className="flex items-center justify-center px-5 py-2 md:py-5">
-        <p className="flex items-center text-sm p-5 max-sm:mt-3 font-light pr-5 shadow-xl rounded-xl w-fit bg-white italic max-w-3xl text-[#029c56]">
+        <p className="flex items-center text-sm p-5 max-sm:mt-3 font-light pr-5 shadow-xl rounded-xl w-fit bg-white italic max-w-3xl text-[#dc143c]">
           <UserCircleIcon
-            className={`inline-block h-10 w-10 text-[#029c56] mr-1
+            className={`inline-block h-10 w-10 text-blue-900 mr-1
           ${loading && "animate-spin"}
           `}
           />

@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="my_gradient  bg-fixed pb-16">
+      <body className="my_gradient h-[100vh]">
         {children}
         <Modal />
       </body>
